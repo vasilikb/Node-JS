@@ -4,6 +4,12 @@ let app = new express();
 
 app.use(express.json()); //Middleware for express to use to parse JSON in req body
 
+//allows access to the public folder
+app.use(express.static('public'));
+
+//Allows ejs engine which looks in views folder for .ejs files
+app.set('view engine', 'ejs');
+
 //With http
 //const http = require("http")
 //const server = http.createServer((req, res) =>{
@@ -21,7 +27,8 @@ const cust = [
 ];
 
 app.get("/", function(req, res){
-    res.send("Hello, from node samples");
+    //res.send("Hello, from node samples");
+    res.render('index');
 });
 
 app.get("/about", function(req, res){
