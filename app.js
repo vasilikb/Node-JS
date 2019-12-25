@@ -31,6 +31,11 @@ app.get("/", function(req, res){
     res.render('index');
 });
 
+app.post('/', function (req, res) {
+    res.render('index');
+    console.log(req.body.city);
+  })
+
 app.get("/about", function(req, res){
     res.send("About this web page.");
 });
